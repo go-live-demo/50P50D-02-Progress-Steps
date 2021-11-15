@@ -1,0 +1,100 @@
+/* 'Robot' font Regular 400 & Bold 700  */
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+body {
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center; /* flex-direction: column; so the items will be aligned horizontally*/
+    justify-content: center; /*flex-direction: column; so to divide space around items vertically (center)*/
+    text-align: center;
+    height: 100vh; 
+    overflow: hidden; 
+    margin: 0;
+    
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    
+    max-width: 100%;
+    width: 350px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.progress-container::after {
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 5px;
+    z-index: -2;
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 0%;
+    height: 5px;
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.circle {
+    background-color: #fff;
+    color: #999;
+    border: solid 3px var(--line-border-empty) ;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    /* center the inner text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.btn {
+    padding: 5px 15px;
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 8px 30px;
+    margin: 5px;
+}
+
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    color: #999;
+    cursor: not-allowed;
+}
+
+.btn:focus {
+    outline: 0;
+}
+.btn:active {
+    transform: scale(0.98);
+}
